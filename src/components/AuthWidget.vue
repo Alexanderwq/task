@@ -1,11 +1,13 @@
 <template>
   <div class="auth">
-    <AuthSection />
+    <AuthSection v-if="false" />
+    <CodeVerificationSection />
   </div>
 </template>
 
 <script lang="ts" setup>
 import AuthSection from "@/components/AuthSection.vue";
+import CodeVerificationSection from "@/components/CodeVerificationSection.vue";
 </script>
 
 <style lang="scss" scoped>
