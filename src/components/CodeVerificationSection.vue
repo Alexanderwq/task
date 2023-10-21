@@ -1,9 +1,9 @@
 <template>
   <div class="verification">
-    <h3 class="verification__title">
+    <h3 class="auth__title">
       Авторизация
     </h3>
-    <p class="verification__description">
+    <p class="auth__description">
       Войдите или зарегистрируйтесь, чтобы
       <br/>
       продолжить

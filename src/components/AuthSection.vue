@@ -1,9 +1,9 @@
 <template>
   <div class="auth-section">
-    <h3 class="auth-section__title">
+    <h3 class="auth__title">
       Авторизация
     </h3>
-    <p class="auth-section__description">
+    <p class="auth__description">
       Войдите или зарегистрируйтесь, чтобы
       <br/>
       продолжить

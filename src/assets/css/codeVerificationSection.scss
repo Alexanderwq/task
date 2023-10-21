@@ -40,23 +40,6 @@
       align-self: center;
     }
 
-    &__title {
-      color: $color-black-primary;
-      font-feature-settings: $font-settings;
-      font-size: 24px;
-      font-weight: 400;
-      margin-bottom: 4px;
-    }
-
-    &__description {
-      color: $color-black-secondary;
-      font-feature-settings: $font-settings;
-      font-size: 15px;
-      line-height: 20px;
-      text-align: left;
-      margin-bottom: 24px;
-    }
-
     &__warning {
       color: $color-critical;
       align-self: center;
