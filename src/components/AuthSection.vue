@@ -9,7 +9,7 @@
       продолжить
     </p>
     <PhoneInput
-      :phone="phone"
+      :phone="auth.userInfo.phone"
       @inputPhone="setPhone"
       class="auth-section__input"
     />
@@ -51,21 +51,20 @@ import {useAuthStore} from "@/store/authStore";
 
 const auth = useAuthStore()
 const authNavigation = useAuthNavigation()
-const phone = ref<string>('')
 const checkedAgreement = ref<boolean>(true)
 
 function setPhone(changedPhone: string): void {
-  phone.value = changedPhone
+  auth.userInfo.phone = changedPhone
 }
 
 async function handleAuth(): Promise<void> {
-  if (phone.value.length < 18) return
+  if (auth.userInfo.phone.length < 18) return
   if (!checkedAgreement.value) return
 
   try {
-    const isAuth: boolean = await api.isAuth(phone.value)
+    const isAuth: boolean = await api.isAuth(auth.userInfo.phone)
     auth.setAuthStatus(isAuth)
-    api.sendNotificationCode(phone.value)
+    api.sendNotificationCode(auth.userInfo.phone)
     authNavigation.setSection('CodeVerificationSection')
   } catch (e) {
     console.log(e)

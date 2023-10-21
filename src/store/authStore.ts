@@ -1,14 +1,17 @@
 import {defineStore} from "pinia";
+import UserInfo from "@/types/UserInfo";
 
 type State = {
-    userInfo: object,
+    userInfo: UserInfo,
     isAuth: boolean,
 }
 
 export const useAuthStore = defineStore('auth', {
     state: (): State => {
         return {
-            userInfo: {},
+            userInfo: {
+                phone: '',
+            } as UserInfo,
             isAuth: false,
         }
     },
