@@ -8,4 +8,9 @@ export default {
     sendNotificationCode(phone: string): void {
         console.log('send code')
     },
+
+    verifyCode(code: string): boolean {
+        console.log('verify code')
+        return code === '1111'
+    },
 }

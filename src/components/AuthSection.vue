@@ -56,12 +56,12 @@ function setPhone(changedPhone: string): void {
   phone.value = changedPhone
 }
 
-function handleAuth(): void {
+async function handleAuth(): Promise<void> {
   if (phone.value.length < 18) return
   if (!checkedAgreement.value) return
 
   try {
-    const isAuth: boolean = api.isAuth(phone.value)
+    const isAuth: boolean = await api.isAuth(phone.value)
     api.sendNotificationCode(phone.value)
     authNavigation.setSection('CodeVerificationSection')
   } catch (e) {

@@ -9,9 +9,19 @@
       продолжить
     </p>
     <CodeVerificationInputs
-      @handleOnComplete="resendCode"
+      :code="code"
+      :error="codeIsInvalid"
+      @handleOnComplete="verifyCode"
       class="verification__inputs"
     />
+    <transition name="fade">
+      <span
+          v-if="codeIsInvalid"
+          class="verification__warning"
+      >
+        Указаны неверные цифры, попробуйте <br/> через смс-код
+      </span>
+    </transition>
     <span
       @click="resendCode"
       class="verification__resend"
@@ -30,9 +40,28 @@
 import CodeVerificationInputs from "@/components/CodeVerificationInputs.vue";
 import api from "@/api/api";
 import SuccessButton from "@/components/SuccessButton.vue";
+import {ref} from "vue";
+import {useAuthNavigation} from "@/store/authNavigation";
 
-function resendCode() {
-  api.sendNotificationCode('123')
+const authNavigation = useAuthNavigation()
+const code = ref<string>('')
+const codeIsInvalid = ref<boolean>(false)
+
+function verifyCode() {
+  const codeIsCorrect: boolean = api.verifyCode(code.value)
+  if (codeIsCorrect) {
+    authNavigation.setSection('')
+  } else {
+    codeIsInvalid.value = true
+  }
+}
+
+async function resendCode(): Promise<void> {
+  try {
+    await api.sendNotificationCode('123')
+  } catch (e) {
+    console.log(e)
+  }
 }
 </script>
 
@@ -75,5 +104,24 @@ function resendCode() {
       text-align: left;
       margin-bottom: 24px;
     }
+
+    &__warning {
+      color: $color-critical;
+      align-self: center;
+      margin-top: 10px;
+      font-feature-settings: $font-settings;
+      font-size: 13px;
+      line-height: 16px;
+    }
+  }
+
+  .fade-enter-active,
+  .fade-leave-active {
+    transition: opacity 0.3s ease;
+  }
+
+  .fade-enter-from,
+  .fade-leave-to {
+    opacity: 0;
   }
 </style>
