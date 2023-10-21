@@ -9,7 +9,7 @@
       продолжить
     </p>
     <CodeVerificationInputs
-      :code="code"
+      code=""
       :error="codeIsInvalid"
       @handleOnComplete="verifyCode"
       class="verification__inputs"
@@ -28,6 +28,31 @@
     >
       Нет звонка? Получить смс-код
     </span>
+    <AgreementBlock
+      v-if="auth.isAuth"
+      :checked="checkedAgreement"
+      @change="checkedAgreement = !checkedAgreement"
+    >
+      <template #text>
+        <p class="verification-agreement">
+          Я принимаю
+          <a href="/" class="verification-agreement__link">условия соглашения</a>
+          и соглашаюсь с обработку
+          <a href="/" class="verification-agreement__link">персональных данных</a>
+        </p>
+      </template>
+    </AgreementBlock>
+    <AgreementBlock
+        v-if="auth.isAuth"
+        :checked="isSubscription"
+        @change="isSubscription = !isSubscription"
+    >
+      <template #text>
+        <p class="verification-agreement">
+          Хочу получать сообщения рекламного и информационного характера
+        </p>
+      </template>
+    </AgreementBlock>
     <SuccessButton>
       <template #text>
         Авторизоваться
@@ -42,13 +67,19 @@ import api from "@/api/api";
 import SuccessButton from "@/components/SuccessButton.vue";
 import {ref} from "vue";
 import {useAuthNavigation} from "@/store/authNavigation";
+import {useAuthStore} from "@/store/authStore";
+import AgreementBlock from "@/components/AgreementBlock.vue";
 
+const auth = useAuthStore()
 const authNavigation = useAuthNavigation()
-const code = ref<string>('')
 const codeIsInvalid = ref<boolean>(false)
+const checkedAgreement = ref<boolean>(true)
+const isSubscription = ref<boolean>(false)
 
-function verifyCode() {
-  const codeIsCorrect: boolean = api.verifyCode(code.value)
+function verifyCode(code: string) {
+  if (!checkedAgreement.value) return
+
+  const codeIsCorrect: boolean = api.verifyCode(code)
   if (codeIsCorrect) {
     authNavigation.setSection('')
   } else {
@@ -70,6 +101,25 @@ async function resendCode(): Promise<void> {
     display: flex;
     flex-direction: column;
     align-items: flex-start;
+
+    &-agreement {
+      color: $color-black-primary;
+      font-feature-settings: $font-settings;
+      font-size: 15px;
+      line-height: 20px;
+      text-align: left;
+      margin-bottom: 24px;
+      margin-top: -3px;
+
+      &__link {
+        background: $gradient-main-primary;
+        background-clip: text;
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        font-size: 15px;
+        line-height: 20px;
+      }
+    }
 
     &__resend {
       background: $gradient-main-primary;
