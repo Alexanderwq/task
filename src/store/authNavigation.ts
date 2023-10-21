@@ -3,6 +3,7 @@ import AuthSection from "@/components/AuthSection.vue";
 import CodeVerificationSection from "@/components/CodeVerificationSection.vue";
 import ComponentsList from "@/types/ComponentsList";
 import {Component} from "vue";
+import RegistrationCompletedSection from "@/components/RegistrationCompletedSection.vue";
 
 type State = {
     currentSection: string,
@@ -18,8 +19,9 @@ export const useAuthNavigation = defineStore('authNavigation', {
     getters: {
         getCurrentComponent(state: State): Component {
             const components: ComponentsList = {
-                AuthSection: AuthSection,
-                CodeVerificationSection: CodeVerificationSection,
+                AuthSection,
+                CodeVerificationSection,
+                RegistrationCompletedSection,
             }
 
             return components[state.currentSection];

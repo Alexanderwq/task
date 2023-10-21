@@ -81,7 +81,7 @@ function verifyCode(code: string) {
 
   const codeIsCorrect: boolean = api.verifyCode(code)
   if (codeIsCorrect) {
-    authNavigation.setSection('')
+    authNavigation.setSection('RegistrationCompletedSection')
   } else {
     codeIsInvalid.value = true
   }
@@ -89,7 +89,7 @@ function verifyCode(code: string) {
 
 async function resendCode(): Promise<void> {
   try {
-    await api.sendNotificationCode('123')
+    await api.sendNotificationCode(auth.userInfo.phone)
   } catch (e) {
     console.log(e)
   }
