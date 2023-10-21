@@ -7,7 +7,8 @@
       Расскажите немного о себе, чтобы мастера знали как к вам обращаться
     </p>
     <NameInput
-      name="123"
+      :name="auth.userInfo.name"
+      @inputName="auth.setName"
     />
     <SuccessButton>
       <template #text>
@@ -23,6 +24,9 @@
 <script lang="ts" setup>
 import NameInput from "@/components/NameInput.vue";
 import SuccessButton from "@/components/SuccessButton.vue";
+import {useAuthStore} from "@/store/authStore";
+
+const auth = useAuthStore()
 </script>
 
 <style lang="scss" scoped></style>

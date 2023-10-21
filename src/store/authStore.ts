@@ -11,6 +11,7 @@ export const useAuthStore = defineStore('auth', {
         return {
             userInfo: {
                 phone: '',
+                name: '',
             } as UserInfo,
             isAuth: false,
         }
@@ -20,6 +21,10 @@ export const useAuthStore = defineStore('auth', {
     actions: {
         setAuthStatus(value: boolean): void {
             this.isAuth = value
+        },
+
+        setName(name: string): void {
+            this.userInfo.name = name
         },
     },
 })
