@@ -1,5 +1,6 @@
 import {defineStore} from "pinia";
 import UserInfo from "@/types/UserInfo";
+import api from "@/api/api";
 
 type State = {
     userInfo: UserInfo,
@@ -26,5 +27,9 @@ export const useAuthStore = defineStore('auth', {
         setName(name: string): void {
             this.userInfo.name = name
         },
+
+        async changeName(): Promise<void> {
+            await api.saveName(this.userInfo.name)
+        }
     },
 })

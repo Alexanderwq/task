@@ -10,7 +10,9 @@
       :name="auth.userInfo.name"
       @inputName="auth.setName"
     />
-    <SuccessButton>
+    <SuccessButton
+      @click="saveName"
+    >
       <template #text>
         Сохранить
       </template>
@@ -27,6 +29,14 @@ import SuccessButton from "@/components/SuccessButton.vue";
 import {useAuthStore} from "@/store/authStore";
 
 const auth = useAuthStore()
+
+async function saveName() {
+  try {
+    await auth.changeName()
+  } catch (e) {
+    console.log(e)
+  }
+}
 </script>
 
 <style lang="scss" scoped></style>

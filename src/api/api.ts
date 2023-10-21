@@ -16,4 +16,8 @@ export default {
         console.log('verify code')
         return code === '1111'
     },
+
+    saveName(name: string): void {
+        console.log(name)
+    },
 }
