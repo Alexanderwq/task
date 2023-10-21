@@ -22,5 +22,4 @@
     padding: 16px;
     border-radius: 12px;
   }
-
 </style>

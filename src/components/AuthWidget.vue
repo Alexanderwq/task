@@ -12,6 +12,7 @@
   const authNavigation = useAuthNavigation()
 </script>
 
+<style lang="scss" src="../assets/css/auth.scss"></style>
 <style lang="scss" scoped>
   .auth {
     max-width: 375px;

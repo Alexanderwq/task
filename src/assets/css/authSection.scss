@@ -1,0 +1,46 @@
+.auth {
+  &-agreement-text {
+    text-align: left;
+    color: $color-black-primary;
+    font-feature-settings: $font-settings;
+    font-size: 15px;
+    line-height: 20px;
+    margin-top: -4px;
+  }
+
+  &-submit {
+    margin-top: 16px;
+  }
+
+  &__link {
+    background: $gradient-main-primary;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+  }
+
+  &-section {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+
+    &__title {
+      color: $color-black-primary;
+      font-feature-settings: $font-settings;
+      font-size: 24px;
+      font-weight: 400;
+      margin-bottom: 4px;
+    }
+
+    &__description {
+      color: $color-black-secondary;
+      font-feature-settings: $font-settings;
+      font-size: 15px;
+      line-height: 20px;
+      text-align: left;
+    }
+
+    &__input {
+      margin: 24px 0 16px;
+    }
+  }
+}

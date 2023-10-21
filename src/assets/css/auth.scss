@@ -1,0 +1,10 @@
+@import "authSection";
+@import "codeVerificationSection";
+@import "agreement";
+@import "phoneInput";
+@import "registrationCompleted";
+
+.auth {
+  max-width: 375px;
+  margin: 0 auto;
+}

@@ -1,0 +1,116 @@
+.auth {
+  .verification {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+
+    &-agreement {
+      color: $color-black-primary;
+      font-feature-settings: $font-settings;
+      font-size: 15px;
+      line-height: 20px;
+      text-align: left;
+      margin-bottom: 24px;
+      margin-top: -3px;
+
+      &__link {
+        background: $gradient-main-primary;
+        background-clip: text;
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        font-size: 15px;
+        line-height: 20px;
+      }
+    }
+
+    &__resend {
+      background: $gradient-main-primary;
+      background-clip: text;
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      font-feature-settings: $font-settings;
+      font-size: 13px;
+      font-weight: 500;
+      margin: 16px 0 32px;
+      align-self: center;
+      cursor: pointer;
+    }
+
+    &__inputs {
+      align-self: center;
+    }
+
+    &__title {
+      color: $color-black-primary;
+      font-feature-settings: $font-settings;
+      font-size: 24px;
+      font-weight: 400;
+      margin-bottom: 4px;
+    }
+
+    &__description {
+      color: $color-black-secondary;
+      font-feature-settings: $font-settings;
+      font-size: 15px;
+      line-height: 20px;
+      text-align: left;
+      margin-bottom: 24px;
+    }
+
+    &__warning {
+      color: $color-critical;
+      align-self: center;
+      margin-top: 10px;
+      font-feature-settings: $font-settings;
+      font-size: 13px;
+      line-height: 16px;
+    }
+  }
+
+  .fade-enter-active,
+  .fade-leave-active {
+    transition: opacity 0.3s ease;
+  }
+
+  .fade-enter-from,
+  .fade-leave-to {
+    opacity: 0;
+  }
+
+
+  .otp-input {
+    width: 52px;
+    height: 52px;
+    padding: 5px;
+    margin: 0 8px;
+    border-radius: 12px;
+    border: none;
+    text-align: center;
+    background: $bg-white-secondary;
+    color: #000;
+    font-feature-settings: $font-settings;
+    font-size: 32px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: 20px;
+    transition: .15s ease-in-out;
+
+    &::placeholder {
+      text-align: center;
+      color: #000;
+      font-feature-settings: $font-settings;
+      font-size: 32px;
+      line-height: 32px;
+      font-weight: 500;
+      opacity: .1;
+    }
+
+    &:focus {
+      outline: none;
+    }
+
+    &.error {
+      border: 1px solid $color-critical !important;
+    }
+  }
+}

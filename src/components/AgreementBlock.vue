@@ -21,8 +21,4 @@ const emits = defineEmits([
 </script>
 
 <style lang="scss" scoped>
-  .agreement {
-    display: flex;
-    gap: 12px;
-  }
 </style>

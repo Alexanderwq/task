@@ -36,39 +36,4 @@ function handleOnComplete(code: string) {
 </script>
 
 <style lang="scss">
-  .otp-input {
-    width: 52px;
-    height: 52px;
-    padding: 5px;
-    margin: 0 8px;
-    border-radius: 12px;
-    border: none;
-    text-align: center;
-    background: $bg-white-secondary;
-    color: #000;
-    font-feature-settings: $font-settings;
-    font-size: 32px;
-    font-style: normal;
-    font-weight: 500;
-    line-height: 20px;
-    transition: .15s ease-in-out;
-
-    &::placeholder {
-      text-align: center;
-      color: #000;
-      font-feature-settings: $font-settings;
-      font-size: 32px;
-      line-height: 32px;
-      font-weight: 500;
-      opacity: .1;
-    }
-
-    &:focus {
-      outline: none;
-    }
-
-    &.error {
-      border: 1px solid $color-critical !important;
-    }
-  }
 </style>
