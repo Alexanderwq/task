@@ -47,7 +47,9 @@ import SuccessButton from "@/components/SuccessButton.vue";
 import {ref} from "vue";
 import api from "@/api/api";
 import {useAuthNavigation} from "@/store/authNavigation";
+import {useAuthStore} from "@/store/authStore";
 
+const auth = useAuthStore()
 const authNavigation = useAuthNavigation()
 const phone = ref<string>('')
 const checkedAgreement = ref<boolean>(true)
@@ -62,6 +64,7 @@ async function handleAuth(): Promise<void> {
 
   try {
     const isAuth: boolean = await api.isAuth(phone.value)
+    auth.setAuthStatus(isAuth)
     api.sendNotificationCode(phone.value)
     authNavigation.setSection('CodeVerificationSection')
   } catch (e) {
