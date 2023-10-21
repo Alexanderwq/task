@@ -9,6 +9,8 @@
       продолжить
     </p>
     <PhoneInput
+      :phone="phone"
+      @inputPhone="setPhone"
       class="auth-section__input"
     />
     <AgreementBlock>
@@ -25,6 +27,7 @@
     </AgreementBlock>
 
     <SuccessButton
+      @click="handleAuth"
       class="auth-submit"
     >
       <template #text>
@@ -34,11 +37,27 @@
   </div>
 </template>
 
-<script type="ts" setup>
-
+<script lang="ts" setup>
 import PhoneInput from "@/components/PhoneInput.vue";
 import AgreementBlock from "@/components/AgreementBlock.vue";
 import SuccessButton from "@/components/SuccessButton.vue";
+import {ref} from "vue";
+import api from "@/api/api";
+
+const phone = ref<string>('');
+
+function setPhone(changedPhone: string): void {
+  phone.value = changedPhone
+}
+
+function handleAuth(): void {
+  try {
+    const isAuth: boolean = api.isAuth(phone.value)
+    api.sendNotificationCode(phone.value)
+  } catch (e) {
+    console.log(e)
+  }
+}
 </script>
 
 <style lang="scss" scoped>

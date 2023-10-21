@@ -1,13 +1,28 @@
 <template>
   <label class="wrapper-input">
-    <input class="input" placeholder="+7 (" />
+    <input
+      :value="props.phone"
+      @input="emits('inputPhone', '123')"
+      class="input"
+      placeholder="+7 ("
+      v-maska
+      data-maska="+7 (###) ###-##-##"
+    />
     <TooltipInput class="input__icon" />
   </label>
 </template>
 
 <script lang="ts" setup>
-
+import { vMaska } from 'maska';
 import TooltipInput from "@/components/TooltipInput.vue";
+
+const props = defineProps<{
+  phone: string,
+}>()
+
+const emits = defineEmits<{
+  inputPhone: [phone: string],
+}>()
 </script>
 
 <style lang="scss" scoped>
