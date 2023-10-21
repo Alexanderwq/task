@@ -13,7 +13,10 @@
       @inputPhone="setPhone"
       class="auth-section__input"
     />
-    <AgreementBlock>
+    <AgreementBlock
+      :checked="checkedAgreement"
+      @change="checkedAgreement = !checkedAgreement"
+    >
       <template #text>
         <p class="auth-agreement-text">
           Я ознакомился и принимаю
@@ -43,17 +46,24 @@ import AgreementBlock from "@/components/AgreementBlock.vue";
 import SuccessButton from "@/components/SuccessButton.vue";
 import {ref} from "vue";
 import api from "@/api/api";
+import {useAuthNavigation} from "@/store/authNavigation";
 
-const phone = ref<string>('');
+const authNavigation = useAuthNavigation()
+const phone = ref<string>('')
+const checkedAgreement = ref<boolean>(true)
 
 function setPhone(changedPhone: string): void {
   phone.value = changedPhone
 }
 
 function handleAuth(): void {
+  if (phone.value.length < 18) return
+  if (!checkedAgreement.value) return
+
   try {
     const isAuth: boolean = api.isAuth(phone.value)
     api.sendNotificationCode(phone.value)
+    authNavigation.setSection('CodeVerificationSection')
   } catch (e) {
     console.log(e)
   }

@@ -1,8 +1,8 @@
 <template>
   <label class="wrapper-input">
     <input
-      :value="props.phone"
-      @input="emits('inputPhone', '123')"
+      :value="phone"
+      @input="emits('inputPhone', $event.target.value)"
       class="input"
       placeholder="+7 ("
       v-maska
@@ -16,7 +16,7 @@
 import { vMaska } from 'maska';
 import TooltipInput from "@/components/TooltipInput.vue";
 
-const props = defineProps<{
+defineProps<{
   phone: string,
 }>()
 

@@ -1,13 +1,15 @@
 <template>
   <div class="auth">
-    <AuthSection v-if="false" />
-    <CodeVerificationSection />
+    <component
+      :is="authNavigation.getCurrentComponent"
+    />
   </div>
 </template>
 
 <script lang="ts" setup>
-import AuthSection from "@/components/AuthSection.vue";
-import CodeVerificationSection from "@/components/CodeVerificationSection.vue";
+  import {useAuthNavigation} from "@/store/authNavigation";
+
+  const authNavigation = useAuthNavigation()
 </script>
 
 <style lang="scss" scoped>
