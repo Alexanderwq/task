@@ -1,20 +1,21 @@
 .auth {
-  &-section {
+  & .name-section {
     display: flex;
     flex-direction: column;
-    align-items: flex-start;
 
-    &__input {
-      margin: 24px 0 16px;
+    & .auth__link {
+      margin-top: 30px;
+      align-self: center;
     }
 
     & .wrapper-input {
       display: inline-block;
       position: relative;
       width: 100%;
+      margin: 25px 0 170px;
 
       & .input {
-        padding: 14px 40px 14px 12px;
+        padding: 24px 40px 14px 12px;
         border-radius: 12px;
         background: $bg-white-secondary;
         border: 1.5px solid transparent;
@@ -26,6 +27,18 @@
         line-height: 20px;
         transition: $transition-default;
         width: 100%;
+        position: relative;
+
+        &__text {
+          position: absolute;
+          z-index: 10;
+          color: $color-black-secondary;
+          font-feature-settings: $font-settings;
+          font-size: 13px;
+          line-height: 16px;
+          top: 9px;
+          left: 12px;
+        }
 
         &::placeholder {
           color: $color-black-teritaty;

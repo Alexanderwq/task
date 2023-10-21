@@ -7,7 +7,10 @@
     <p class="registration-completed__text">
       Теперь вам нужно заполнить профиль
     </p>
-    <SuccessButton class="registration-completed__button">
+    <SuccessButton
+      @click="authNavigation.setSection('NameSection')"
+      class="registration-completed__button"
+    >
       <template #text>
         Отлично
       </template>
@@ -16,8 +19,10 @@
 </template>
 
 <script lang="ts" setup>
-
 import SuccessButton from "@/components/SuccessButton.vue";
+import {useAuthNavigation} from "@/store/authNavigation";
+
+const authNavigation = useAuthNavigation()
 </script>
 
 <style lang="scss" scoped>
