@@ -7,6 +7,10 @@
 .auth {
   max-width: 375px;
   margin: 0 auto;
+  
+  & .back {
+    cursor: pointer;
+  }
 
   &__title {
     color: $color-black-primary;

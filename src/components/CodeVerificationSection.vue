@@ -1,5 +1,8 @@
 <template>
   <div class="verification">
+    <BackButton
+      @click="authNavigation.setSection('AuthSection')"
+    />
     <h3 class="auth__title">
       Авторизация
     </h3>
@@ -69,6 +72,7 @@ import {ref} from "vue";
 import {useAuthNavigation} from "@/store/authNavigation";
 import {useAuthStore} from "@/store/authStore";
 import AgreementBlock from "@/components/AgreementBlock.vue";
+import BackButton from "@/components/BackButton.vue";
 
 const auth = useAuthStore()
 const authNavigation = useAuthNavigation()
