@@ -4,9 +4,9 @@
       Авторизация
     </h3>
     <p class="auth__description">
-      Войдите или зарегистрируйтесь, чтобы
+      Отвечать на звонок не нужно. Мы уже звоним на
       <br/>
-      продолжить
+      номер {{ auth.userInfo.phone }}
     </p>
     <CodeVerificationInputs
       code=""
