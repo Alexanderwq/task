@@ -29,7 +29,7 @@
       Нет звонка? Получить смс-код
     </span>
     <AgreementBlock
-      v-if="auth.isAuth"
+      v-if="!auth.isAuth"
       :checked="checkedAgreement"
       @change="checkedAgreement = !checkedAgreement"
     >
@@ -43,7 +43,7 @@
       </template>
     </AgreementBlock>
     <AgreementBlock
-        v-if="auth.isAuth"
+        v-if="!auth.isAuth"
         :checked="isSubscription"
         @change="isSubscription = !isSubscription"
     >
@@ -80,11 +80,14 @@ function verifyCode(code: string) {
   if (!checkedAgreement.value) return
 
   const codeIsCorrect: boolean = api.verifyCode(code)
-  if (codeIsCorrect) {
-    authNavigation.setSection('RegistrationCompletedSection')
-  } else {
-    codeIsInvalid.value = true
+  if (!codeIsCorrect) {
+    return codeIsInvalid.value = true
   }
+
+  if (!auth.isAuth) {
+    return authNavigation.setSection('RegistrationCompletedSection')
+  }
+  authNavigation.setSection('')
 }
 
 async function resendCode(): Promise<void> {
