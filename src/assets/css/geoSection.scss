@@ -71,7 +71,7 @@
       display: inline-block;
       position: relative;
       width: 100%;
-      margin: 8px 0 26px;
+      margin: 26px 0 8px;
 
       & .input {
         padding: 24px 40px 14px 12px;
@@ -119,6 +119,19 @@
           right: 10px;
           transform: translateY(-50%);
         }
+      }
+    }
+
+    & .address {
+      &-link {
+        color: $color-black-primary;
+        font-feature-settings: $font-settings;
+        font-size: 15px;
+        font-weight: 400;
+        line-height: 20px;
+        padding: 12px 0;
+        border-bottom: 1px solid #E5E5E5;
+        cursor: pointer;
       }
     }
   }
