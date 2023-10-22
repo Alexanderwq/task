@@ -24,9 +24,10 @@
   .success-button {
     color: $color-default;
     text-align: center;
+    font-family: $font-mulish;
+    font-weight: 700;
     font-feature-settings: $font-settings;
     font-size: 15px;
-    font-weight: 700;
     line-height: 20px;
     background: $gradient-main-primary;
     border: none;

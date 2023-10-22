@@ -7,6 +7,7 @@
     &-agreement {
       color: $color-black-primary;
       font-feature-settings: $font-settings;
+      font-family: $font-inter;
       font-size: 15px;
       line-height: 20px;
       text-align: left;
@@ -25,6 +26,7 @@
 
     &__resend {
       background: $gradient-main-primary;
+      font-family: $font-inter;
       background-clip: text;
       -webkit-background-clip: text;
       -webkit-text-fill-color: transparent;
@@ -42,6 +44,7 @@
 
     &__warning {
       color: $color-critical;
+      font-family: $font-inter;
       align-self: center;
       margin-top: 10px;
       font-feature-settings: $font-settings;
@@ -77,6 +80,7 @@
     font-weight: 500;
     line-height: 20px;
     transition: .15s ease-in-out;
+    font-family: $font-inter;
 
     &::placeholder {
       text-align: center;
@@ -86,6 +90,7 @@
       line-height: 32px;
       font-weight: 500;
       opacity: .1;
+      font-family: $font-inter;
     }
 
     &:focus {

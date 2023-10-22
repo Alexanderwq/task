@@ -71,6 +71,7 @@
         font-feature-settings: $font-settings;
         font-size: 13px;
         width: 165px;
+        font-family: $font-inter;
         text-align: left;
       }
     }

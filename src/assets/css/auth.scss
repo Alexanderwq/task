@@ -1,3 +1,4 @@
+@import "fonts";
 @import "authSection";
 @import "codeVerificationSection";
 @import "agreement";
@@ -19,6 +20,7 @@
     font-size: 24px;
     font-weight: 400;
     margin-bottom: 4px;
+    font-family: $font-inter;
   }
 
   &__description {
@@ -27,6 +29,7 @@
     font-size: 15px;
     line-height: 20px;
     text-align: left;
+    font-family: $font-inter;
   }
 
   &-agreement-text {
@@ -36,6 +39,7 @@
     font-size: 15px;
     line-height: 20px;
     margin-top: -4px;
+    font-family: $font-inter;
   }
 
   &-submit {
@@ -44,6 +48,8 @@
 
   &__link {
     background: $gradient-main-primary;
+    font-family: $font-mulish;
+    font-weight: 700;
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
   }

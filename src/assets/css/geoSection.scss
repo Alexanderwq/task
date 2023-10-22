@@ -35,6 +35,7 @@
         font-feature-settings: $font-settings;
         font-size: 15px;
         line-height: 20px;
+        font-family: $font-inter;
       }
     }
 
@@ -49,8 +50,13 @@
       &__title {
         color: $color-black-secondary;
         font-feature-settings: $font-settings;
+        font-family: $font-nunito;
         font-size: 13px;
         line-height: 16px;
+      }
+
+      &__text {
+        font-family: $font-nunito;
       }
     }
   }
@@ -76,9 +82,11 @@
       font-feature-settings: $font-settings;
       font-size: 17px;
       font-weight: 500;
+      font-family: $font-inter;
     }
 
     &__description {
+      font-family: $font-inter;
       color: $color-black-secondary;
       text-align: center;
       font-feature-settings: $font-settings;
@@ -93,6 +101,7 @@
       margin: 26px 0 8px;
 
       & .input {
+        font-family: $font-nunito;
         padding: 24px 40px 14px 12px;
         border-radius: 12px;
         background: $bg-white-secondary;
@@ -116,6 +125,7 @@
           line-height: 16px;
           top: 9px;
           left: 12px;
+          font-family: $font-nunito;
         }
 
         &::placeholder {
@@ -143,6 +153,7 @@
 
     & .address {
       &-link {
+        font-family: $font-inter;
         color: $color-black-primary;
         font-feature-settings: $font-settings;
         font-size: 15px;

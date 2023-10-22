@@ -10,6 +10,7 @@
   }
 
   &__title {
+    font-family: $font-inter;
     margin: 55px 0 5px;
     color: $color-black-primary;
     text-align: center;
@@ -18,6 +19,7 @@
   }
 
   &__text {
+    font-family: $font-inter;
     color: $color-black-secondary;
     text-align: center;
     font-feature-settings: $font-settings;
