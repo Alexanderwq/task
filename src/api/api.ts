@@ -11,9 +11,10 @@ export default {
         console.log('send code')
     },
 
-    verifyCode(code: string): boolean {
+    async verifyCode(code: string): Promise<boolean> {
         console.log(code)
         console.log('verify code')
+        await new Promise((res) => setTimeout(res, 1500))
         return code === '1111'
     },
 

@@ -56,7 +56,9 @@
         </p>
       </template>
     </AgreementBlock>
-    <SuccessButton>
+    <SuccessButton
+      :loading="loadingButton"
+    >
       <template #text>
         Авторизоваться
       </template>
@@ -79,11 +81,14 @@ const authNavigation = useAuthNavigation()
 const codeIsInvalid = ref<boolean>(false)
 const checkedAgreement = ref<boolean>(true)
 const isSubscription = ref<boolean>(false)
+const loadingButton = ref<boolean>(false)
 
-function verifyCode(code: string) {
+async function verifyCode(code: string) {
   if (!checkedAgreement.value) return
 
-  const codeIsCorrect: boolean = api.verifyCode(code)
+  loadingButton.value = true
+  const codeIsCorrect: boolean = await api.verifyCode(code)
+  loadingButton.value = false
   if (!codeIsCorrect) {
     return codeIsInvalid.value = true
   }
