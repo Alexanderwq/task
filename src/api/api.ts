@@ -20,4 +20,15 @@ export default {
     saveName(name: string): void {
         console.log(name)
     },
+
+    searchAddress(searchString: string): string[] {
+        const exampleAddressList = [
+            'Кутузовский проспект',
+            'Кутузовский проспект 12',
+            'Кутузовский проспект 22',
+            'Кутузовский проспект 25',
+        ]
+        return exampleAddressList
+            .filter(address => address.match(searchString))
+    }
 }

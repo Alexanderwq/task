@@ -35,6 +35,10 @@ export const useAuthStore = defineStore('auth', {
 
         async changeName(): Promise<void> {
             await api.saveName(this.userInfo.name)
-        }
+        },
+
+        async searchAddress(searchString: string): Promise<string[]> {
+            return await api.searchAddress(searchString)
+        },
     },
 })

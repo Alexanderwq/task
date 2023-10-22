@@ -4,11 +4,9 @@
       v-for="(address, index) in list"
       :key="index"
     >
-      <AddressLink>
-        <template #address>
-          {{ address }}
-        </template>
-      </AddressLink>
+      <AddressLink
+        :address="address"
+      />
     </template>
   </div>
 </template>

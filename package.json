@@ -9,12 +9,14 @@
   },
   "dependencies": {
     "core-js": "^3.8.3",
+    "lodash.debounce": "^4.0.8",
     "maska": "^2.1.10",
     "pinia": "^2.1.7",
     "vue": "^3.2.13",
     "vue3-otp-input": "^0.4.1"
   },
   "devDependencies": {
+    "@types/lodash.debounce": "^4.0.8",
     "@typescript-eslint/eslint-plugin": "^5.4.0",
     "@typescript-eslint/parser": "^5.4.0",
     "@vue/cli-plugin-babel": "~5.0.0",
