@@ -27,12 +27,24 @@
 import NameInput from "@/components/NameInput.vue";
 import SuccessButton from "@/components/SuccessButton.vue";
 import {useAuthStore} from "@/store/authStore";
+import {useAuthNavigation} from "@/store/authNavigation";
 
 const auth = useAuthStore()
+const authNavigation = useAuthNavigation()
 
 async function saveName() {
   try {
+    let geoIsAvailable: Promise<boolean> = new Promise((res, rej) => {
+      navigator.geolocation.getCurrentPosition(() => res(true), () => rej(false))
+    })
+    auth.setGeoIsAvailable(await geoIsAvailable)
+  } catch (e) {
+    auth.setGeoIsAvailable(false)
+  }
+
+  try {
     await auth.changeName()
+    authNavigation.setSection('GeoSection')
   } catch (e) {
     console.log(e)
   }

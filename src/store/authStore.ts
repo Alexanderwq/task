@@ -13,6 +13,7 @@ export const useAuthStore = defineStore('auth', {
             userInfo: {
                 phone: '',
                 name: '',
+                geoIsAvailable: false,
             } as UserInfo,
             isAuth: false,
         }
@@ -20,6 +21,10 @@ export const useAuthStore = defineStore('auth', {
     getters: {
     },
     actions: {
+        setGeoIsAvailable(value: boolean): void {
+            this.userInfo.geoIsAvailable = value
+        },
+
         setAuthStatus(value: boolean): void {
             this.isAuth = value
         },
