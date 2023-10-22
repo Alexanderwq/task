@@ -1,8 +1,10 @@
 <template>
   <div class="auth">
-    <component
-      :is="authNavigation.getCurrentComponent"
-    />
+    <transition name="slide-fade">
+      <component
+          :is="authNavigation.getCurrentComponent"
+      />
+    </transition>
   </div>
 </template>
 
