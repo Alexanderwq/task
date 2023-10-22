@@ -23,7 +23,7 @@
           Ваш адрес
         </p>
         <p class="geo-address__text">
-          Москва, ул. Пушкино, 12
+          {{ auth.userInfo.geoLocation.address }}
         </p>
       </div>
       <SuccessButton>
@@ -39,7 +39,9 @@
 import SuccessButton from "@/components/SuccessButton.vue";
 import ChangeAddressWidget from "@/components/ChangeAddressWidget.vue";
 import {ref} from "vue";
+import {useAuthStore} from "@/store/authStore";
 
+const auth = useAuthStore()
 const showWidget = ref<boolean>(false)
 
 function setShowWidget(value: boolean): void {

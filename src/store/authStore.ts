@@ -1,6 +1,7 @@
 import {defineStore} from "pinia";
 import UserInfo from "@/types/UserInfo";
 import api from "@/api/api";
+import GeoLocation from "@/types/GeoLocation";
 
 type State = {
     userInfo: UserInfo,
@@ -13,7 +14,14 @@ export const useAuthStore = defineStore('auth', {
             userInfo: {
                 phone: '',
                 name: '',
-                geoIsAvailable: false,
+                geoLocation: {
+                    // дефолтные значения, когда не определена геолокация
+                    coords: {
+                        latitude: 321,
+                        longitude: 123,
+                    },
+                    address: 'Москва, ул. Театральная, 32'
+                } as GeoLocation,
             } as UserInfo,
             isAuth: false,
         }
@@ -21,8 +29,8 @@ export const useAuthStore = defineStore('auth', {
     getters: {
     },
     actions: {
-        setGeoIsAvailable(value: boolean): void {
-            this.userInfo.geoIsAvailable = value
+        setGeoLocation(value: GeoLocation): void {
+            this.userInfo.geoLocation = value
         },
 
         setAuthStatus(value: boolean): void {

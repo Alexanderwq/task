@@ -28,18 +28,37 @@ import NameInput from "@/components/NameInput.vue";
 import SuccessButton from "@/components/SuccessButton.vue";
 import {useAuthStore} from "@/store/authStore";
 import {useAuthNavigation} from "@/store/authNavigation";
+import Position from "@/types/Position";
+import api from "@/api/api";
 
 const auth = useAuthStore()
 const authNavigation = useAuthNavigation()
 
+async function setGeoLocation(position: Position): Promise<void> {
+  try {
+    const address: string = await api.getCurrentPosition(position.coords)
+    auth.setGeoLocation(
+        {
+          coords: {
+            latitude: position.coords.latitude,
+            longitude: position.coords.longitude,
+          },
+          address: address,
+        })
+  } catch (e) {
+    console.log(e)
+  }
+
+}
+
 async function saveName() {
   try {
-    let geoIsAvailable: Promise<boolean> = new Promise((res, rej) => {
-      navigator.geolocation.getCurrentPosition(() => res(true), () => rej(false))
+    const geoLocation: Position = await new Promise((resolve, reject) => {
+      navigator.geolocation.getCurrentPosition(resolve, reject)
     })
-    auth.setGeoIsAvailable(await geoIsAvailable)
+    setGeoLocation(geoLocation)
   } catch (e) {
-    auth.setGeoIsAvailable(false)
+    console.log(e)
   }
 
   try {

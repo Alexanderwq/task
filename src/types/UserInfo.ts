@@ -1,5 +1,7 @@
+import GeoLocation from "@/types/GeoLocation";
+
 export default interface UserInfo {
     phone: string,
     name: string,
-    geoIsAvailable: boolean,
+    geoLocation: GeoLocation,
 }

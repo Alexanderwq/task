@@ -1,5 +1,8 @@
 // здесь запросы на бекенд
 
+import Position from "@/types/Position";
+import Coords from "@/types/Coords";
+
 export default {
     isAuth(phone: string): boolean {
         console.log(phone)
@@ -31,5 +34,9 @@ export default {
         ]
         return exampleAddressList
             .filter(address => address.match(searchString))
-    }
+    },
+
+    getCurrentPosition(coords: Coords): string {
+        return 'Москва, ул. Пушкино, 12'
+    },
 }
