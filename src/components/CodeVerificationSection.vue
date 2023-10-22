@@ -4,7 +4,7 @@
       @click="authNavigation.setSection('AuthSection')"
     />
     <h3 class="auth__title">
-      Авторизация
+      Введите последние 4 цифры входящего номера
     </h3>
     <p class="auth__description">
       Отвечать на звонок не нужно. Мы уже звоним на
