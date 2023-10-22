@@ -48,6 +48,7 @@ import {ref} from "vue";
 import api from "@/api/api";
 import {useAuthNavigation} from "@/store/authNavigation";
 import {useAuthStore} from "@/store/authStore";
+import ComponentNames from "@/types/ComponentNames";
 
 const auth = useAuthStore()
 const authNavigation = useAuthNavigation()
@@ -65,7 +66,7 @@ async function handleAuth(): Promise<void> {
     const isAuth: boolean = await api.isAuth(auth.userInfo.phone)
     auth.setAuthStatus(isAuth)
     api.sendNotificationCode(auth.userInfo.phone)
-    authNavigation.setSection('CodeVerificationSection')
+    authNavigation.setSection(ComponentNames.CodeVerificationSection)
   } catch (e) {
     console.log(e)
   }

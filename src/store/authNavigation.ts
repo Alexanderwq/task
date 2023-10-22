@@ -6,15 +6,16 @@ import {Component} from "vue";
 import RegistrationCompletedSection from "@/components/RegistrationCompletedSection.vue";
 import NameSection from "@/components/NameSection.vue";
 import GeoSection from "@/components/GeoSection.vue";
+import ComponentNames from "@/types/ComponentNames";
 
 type State = {
-    currentSection: string,
+    currentSection: ComponentNames,
 }
 
 export const useAuthNavigation = defineStore('authNavigation', {
     state: (): State => {
         return {
-            currentSection: 'AuthSection',
+            currentSection: ComponentNames.AuthSection,
         }
     },
 
@@ -33,7 +34,7 @@ export const useAuthNavigation = defineStore('authNavigation', {
     },
 
     actions: {
-        setSection(section: string): void {
+        setSection(section: ComponentNames): void {
             this.currentSection = section
         },
     },

@@ -1,7 +1,7 @@
 <template>
   <div class="verification">
     <BackButton
-      @click="authNavigation.setSection('AuthSection')"
+      @click="authNavigation.setSection(ComponentNames.AuthSection)"
     />
     <h3 class="auth__title">
       Введите последние 4 цифры входящего номера
@@ -75,6 +75,7 @@ import {useAuthNavigation} from "@/store/authNavigation";
 import {useAuthStore} from "@/store/authStore";
 import AgreementBlock from "@/components/AgreementBlock.vue";
 import BackButton from "@/components/BackButton.vue";
+import ComponentNames from "@/types/ComponentNames";
 
 const auth = useAuthStore()
 const authNavigation = useAuthNavigation()
@@ -94,9 +95,9 @@ async function verifyCode(code: string) {
   }
 
   if (!auth.isAuth) {
-    return authNavigation.setSection('RegistrationCompletedSection')
+    return authNavigation.setSection(ComponentNames.RegistrationCompletedSection)
   }
-  authNavigation.setSection('')
+  authNavigation.setSection(ComponentNames.AuthSection)
 }
 
 async function resendCode(): Promise<void> {

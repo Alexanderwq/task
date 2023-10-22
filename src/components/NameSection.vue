@@ -30,6 +30,7 @@ import {useAuthStore} from "@/store/authStore";
 import {useAuthNavigation} from "@/store/authNavigation";
 import Position from "@/types/Position";
 import api from "@/api/api";
+import ComponentNames from "@/types/ComponentNames";
 
 const auth = useAuthStore()
 const authNavigation = useAuthNavigation()
@@ -63,7 +64,7 @@ async function saveName() {
 
   try {
     await auth.changeName()
-    authNavigation.setSection('GeoSection')
+    authNavigation.setSection(ComponentNames.GeoSection)
   } catch (e) {
     console.log(e)
   }
