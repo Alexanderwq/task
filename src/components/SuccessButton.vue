@@ -13,11 +13,13 @@
 </template>
 
 <script lang="ts" setup>
-  withDefaults(defineProps<{
-    loading: boolean,
-  }>(), {
-    loading: false,
-  })
+    defineProps({
+        loading: {
+          type: Boolean,
+          required: false,
+          default: false,
+        },
+    })
 </script>
 
 <style lang="scss" scoped>
