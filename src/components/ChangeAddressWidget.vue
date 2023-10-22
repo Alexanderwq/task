@@ -1,5 +1,9 @@
 <template>
   <div class="change-address">
+    <BackButton
+      @click="emits('close')"
+      class="change-address__back"
+    />
     <p class="change-address__title">
       Введите адрес
     </p>
@@ -26,6 +30,11 @@ import {computed, ref, watch} from "vue";
 import AddressList from "@/components/AddressList.vue";
 import {useAuthStore} from "@/store/authStore";
 import debounce from "lodash.debounce"
+import BackButton from "@/components/BackButton.vue";
+
+const emits = defineEmits([
+    'close',
+])
 
 const auth = useAuthStore()
 const searchString = ref<string>('')

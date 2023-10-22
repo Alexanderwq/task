@@ -25,6 +25,7 @@
     }
 
     &-address {
+      cursor: pointer;
       margin: 16px 0;
       border-radius: 12px;
       background: $bg-white-secondary;
@@ -50,6 +51,10 @@
     border-radius: 16px 16px 0 0;
     padding: 30px 16px 16px 16px;
     max-width: 375px;
+
+    &__back {
+      display: inline-block;
+    }
 
     &__title {
       color: $color-black-primary;
