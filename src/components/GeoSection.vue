@@ -32,6 +32,7 @@
         </template>
       </SuccessButton>
     </div>
+    <NavigationMenu />
   </div>
 </template>
 
@@ -40,6 +41,7 @@ import SuccessButton from "@/components/SuccessButton.vue";
 import ChangeAddressWidget from "@/components/ChangeAddressWidget.vue";
 import {ref} from "vue";
 import {useAuthStore} from "@/store/authStore";
+import NavigationMenu from "@/components/NavigationMenu.vue";
 
 const auth = useAuthStore()
 const showWidget = ref<boolean>(false)

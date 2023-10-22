@@ -1,6 +1,8 @@
 .auth {
   & .geo {
     &-section {
+      position: relative;
+
       &__map {
         width: 100%;
         height: 550px;
